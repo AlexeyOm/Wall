@@ -6,15 +6,16 @@
 
 <body>
 <form>
-<input type = "text" id = "wallWidth" name = "wallwidth" />
-<input type = "submit" id = "saveForm" name = "saveForm" / >
+<div><input type = "text" id = "wallWidth" name = "wallwidth" />Ширина в метрах</div>
+<div><input type = "text" id = "wallHeight" name = "wallHeight" />Высота в метрах</div>
+<div><input type = "submit" id = "saveForm" name = "saveForm" / ></div>
 <div><input type = "checkbox" id = "diagonal_46" name = "diagonal_46" />Диагональ 46''
 <input type = "checkbox" id = "diagonal_55" name = "diagonal_55" />Диагональ 46''
 </form>
 <div id = "calculateWidth" onclick = "calculateWidth(this)">Расчитать по ширине</div>
 <div id = "helpDiv">ddd</div>
 
-<canvas id="myCanvas" width="640" height="480">Канвас не поддерживается, ваш браузер гавно</canvas>
+<canvas id="myCanvas" width="1280" height="720">Канвас не поддерживается</canvas>
 
 
 <script src = "wall.js"></script>
