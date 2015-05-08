@@ -15,20 +15,28 @@ calculateWidth = function(sizeElement) {
   
   }
   */
+  var allright = 0;
   switch (true) {
     case sizeElement.value === "" : document.getElementById("helpDiv").innerHTML = "Введите значение";
-                                    break;
+									break;
     case isNaN(sizeElement.value)   : document.getElementById("helpDiv").innerHTML = "Введите ширину в метрах";
                                     break;
-    default                       : var width = Number(sizeElement.value);
+    default                       : allright = 1;
+									var width = Number(sizeElement.value);
                                    // alert(width);
-                                   var numPanelesWidth = Math.round(width/0.86);
-                                   //alert(numPanelesWidth);
-clearCanvas();                                   
-drawRect(0, 0, 40*numPanelesWidth, 22);
+									var numPanelsWidth = Math.round(width/0.86);
+									clearCanvas();
+									var c = document.getElementById("myCanvas");
+									var ctx = c.getContext("2d");
+									ctx.clearRect(0, 0, c.width, c.height);									
+									//drawRect(0, 0, 40*numPanelsWidth, 22);
+									for(i = 0; i < numPanelsWidth  ;i++) {
+										drawRect(Math.round(1280*(i+1)/numPanelsWidth), 0, 2, c.height);
+									}
 
 
    }
+   return allright;
 
 
 };
