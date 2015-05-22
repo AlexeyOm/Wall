@@ -1,23 +1,62 @@
+<!DOCTYPE html>
 <html>
 <head>
-<title>Калькулятор видеостены</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel='stylesheet' href='style.css'/>
+	
 </head>
-
-
 <body>
-<form>
-<div><input type = "text" id = "wallWidth" name = "wallwidth" />Ширина в метрах</div>
-<div><input type = "text" id = "wallHeight" name = "wallHeight" />Высота в метрах</div>
-<div><input type = "submit" id = "saveForm" name = "saveForm" / ></div>
-<div><input type = "checkbox" id = "diagonal_46" name = "diagonal_46" />Диагональ 46''
-<input type = "checkbox" id = "diagonal_55" name = "diagonal_55" />Диагональ 46''
-</form>
-<div id = "calculateWidth" onclick = "calculateWidth(this)">Расчитать по ширине</div>
-<div id = "helpDiv">ddd</div>
-
-<canvas id="myCanvas" width="1280" height="720">Канвас не поддерживается</canvas>
 
 
-<script src = "wall.js"></script>
+<form id="form_1004960" class="appnitro"  method="post" action="">
+					<div class="form_description">
+			<h2>Калькулятор видеостены</h2>
+			<p>Задайте параметры и нажмите кнопку "Рассчитать"</p>
+		</div>						
+			<ul >
+			
+					<li id="li_1" >
+		<label class="description" for="element_1">Сколько метров в ширину? </label>
+		<div>
+			<input id="wallWidth" name="wallWidth" class="element text small" type="text" maxlength="255" value=""/> 
+		</div><p class="guidelines" id="wallWidth-help"><small>Укажите ширину видеостены в метрах</small></p> 
+		</li>		<li id="li_2" >
+		<label class="description" for="wallHeight">Сколько метров в высоту? </label>
+		<div>
+			<input id="wallHeight" name="wallHeight" class="element text small" type="text"/> 
+		</div><p class="guidelines" id="wallHeight-help"><small>Укажите высоту видеостены в метрах</small></p> 
+		</li>		<li id="li_4" >
+		<label class="description" for="element_4">Какая яркость панелей требуется? </label>
+		<span>
+			<input id="element_4_1" name="element_4_1" class="element checkbox" type="checkbox" value="1" checked="checked"/>
+<label class="choice" for="element_4_1">500 кд/м2</label>
+<input id="element_4_2" name="element_4_2" class="element checkbox" type="checkbox" value="1" checked="checked"/>
+<label class="choice" for="element_4_2">700 кд/м2</label>
+
+		</span> 
+		</li>		<li id="li_3" >
+		<label class="description" for="element_3">Нужны панели определенной диагонали? </label>
+		<span>
+			<input id="element_3_1" name="element_3_1" class="element checkbox" type="checkbox" value="1" checked="checked"/>
+<label class="choice" for="element_3_1">46 дюймов</label>
+<input id="element_3_2" name="element_3_2" class="element checkbox" type="checkbox" value="1" checked="checked"/>
+<label class="choice" for="element_3_2">47 дюймов</label>
+<input id="element_3_3" name="element_3_3" class="element checkbox" type="checkbox" value="1" checked="checked"/>
+<label class="choice" for="element_3_3">55 дюймов</label>
+
+		</span><p class="guidelines" id="guide_3"><small>Поставьте галочки напротив требуемых размеров</small></p> 
+		</li>
+			
+					
+			    <input type="hidden" name="form_id" value="1004960" />
+			    
+<!--				<input id="saveForm" class="btn" type="submit" name="submit" value="Submit" /> -->
+	
+			</ul>
+		</form>
+<div id="validateWidth" class="btn"  />
+Проверить
+<div>
+<script src='script.js'></script>
 </body>
 </html>
