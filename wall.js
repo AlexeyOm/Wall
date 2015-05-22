@@ -1,57 +1,40 @@
 window.onload = function () {
 
- document.getElementById("helpDiv").innerHTML = "Работает";
- document.getElementById("calculateWidth").onclick = function (evt) {
-   document.getElementById("helpDiv").innerHTML = "Считаем";
-   calculateWidth(document.getElementById("wallWidth"));
-    }
 
-};
-
-calculateWidth = function(sizeElement) {
-
-  /*if(NaN(sizeElement.value)) { 
-    document.getElementById("helpDiv").innerHTML = "Введите число";
+  document.getElementById("validateWidth").onclick = function(evt) {validateSize(document.getElementById('wallWidth'));}
   
+  document.getElementById("wallWidth").onchange = function(evt) {validateSize(document.getElementById('wallWidth'));}
+  document.getElementById("wallHeight").onchange = function(evt) {validateSize(document.getElementById('wallHeight'));}
+};
+
+
+
+
+var alertFunc = function (){
+ alert("hhhh");   
+};
+
+var submitForm = function (theForm) {
+  alert (theForm["wallWidth"].value);
+  return 0;
+};
+
+var validateSize = function (checkMe) {
+  
+  var wValue = document.getElementById(checkMe.id).value;
+  
+  if(wValue === ""){
+   document.getElementById(checkMe.id + "-help").innerHTML = "<small> Значение не должно быть пустым </small>";
+   return false;
   }
-  */
-  var allright = 0;
-  switch (true) {
-    case sizeElement.value === "" : document.getElementById("helpDiv").innerHTML = "Введите значение";
-									break;
-    case isNaN(sizeElement.value)   : document.getElementById("helpDiv").innerHTML = "Введите ширину в метрах";
-                                    break;
-    default                       : allright = 1;
-									var width = Number(sizeElement.value);
-                                   // alert(width);
-									var numPanelsWidth = Math.round(width/0.86);
-									clearCanvas();
-									var c = document.getElementById("myCanvas");
-									var ctx = c.getContext("2d");
-									ctx.clearRect(0, 0, c.width, c.height);									
-									//drawRect(0, 0, 40*numPanelsWidth, 22);
-									for(i = 0; i < numPanelsWidth  ;i++) {
-										drawRect(Math.round(1280*(i+1)/numPanelsWidth), 0, 2, c.height);
-									}
+ console.log ("значение "+ checkMe.value);
 
-
-   }
-   return allright;
-
-
-};
-
-
-
-drawRect = function (topX, topY, length, width) {
-  var c = document.getElementById("myCanvas");
-  var ctx = c.getContext("2d");
-
-  ctx.fillRect(topX,topY,length,width);
-};
-
-clearCanvas = function () {
-  var c = document.getElementById("myCanvas");
-  var ctx = c.getContext("2d");
-  ctx.clearRect(0, 0, c.width, c.height);
+  if (!/^\d+(\.|,)?\d*$/.test(document.getElementById(checkMe.id).value)) {
+    document.getElementById(checkMe.id + "-help").innerHTML = "<small> Введите число </small>";
+    return false;
+  }
+  
+  return true;
+  
+    
 };
