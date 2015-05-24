@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Калькулятор видеостены</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel='stylesheet' href='style.css'/>
 	
@@ -27,22 +28,22 @@
 		</div><p class="guidelines" id="wallHeight-help"><small>Укажите высоту видеостены в метрах</small></p> 
 		</li>		<li id="li_4" >
 		<label class="description" for="element_4">Какая яркость панелей требуется? </label>
-		<span>
-			<input id="element_4_1" name="element_4_1" class="element checkbox" type="checkbox" value="1" checked="checked"/>
-<label class="choice" for="element_4_1">500 кд/м2</label>
-<input id="element_4_2" name="element_4_2" class="element checkbox" type="checkbox" value="1" checked="checked"/>
-<label class="choice" for="element_4_2">700 кд/м2</label>
+		<span id = "brightnessChecks">
+			<input id="brightness_1" name="brightness_1" class="element checkbox" type="checkbox" value="1" checked="checked" />
+<label class="choice" for="brightness_1">Стандартные, порядка 500 кд/м2</label>
+<input id="brightness_2" name="brightness_2" class="element checkbox" type="checkbox" value="1" checked="checked"  />
+<label class="choice" for="brightness_2">Яркие, поряда 700 кд/м2</label>
 
 		</span> 
 		</li>		<li id="li_3" >
 		<label class="description" for="element_3">Нужны панели определенной диагонали? </label>
-		<span>
-			<input id="element_3_1" name="element_3_1" class="element checkbox" type="checkbox" value="1" checked="checked"/>
-<label class="choice" for="element_3_1">46 дюймов</label>
-<input id="element_3_2" name="element_3_2" class="element checkbox" type="checkbox" value="1" checked="checked"/>
-<label class="choice" for="element_3_2">47 дюймов</label>
-<input id="element_3_3" name="element_3_3" class="element checkbox" type="checkbox" value="1" checked="checked"/>
-<label class="choice" for="element_3_3">55 дюймов</label>
+		<span id = diagonalChecks>
+			<input id="diagonalCheck_1" name="diagonalCheck_1" class="element checkbox" type="checkbox" value="1" checked="checked" data-models = "BDL4678XL/00;BDL4677XH/00" data-diag = "46" data-width = "1024" data-height = "579" />
+<label class="choice" for="diagonalCheck_1">46 дюймов</label>
+<input id="diagonalCheck_2" name="diagonalCheck_2" class="element checkbox" type="checkbox" value="1" checked="checked" data-models = "BDL4777XL/00;" data-diag = "47" data-width = "1045" data-height = "590" />
+<label class="choice" for="diagonalCheck_2">47 дюймов</label>
+<input id="diagonalCheck_3" name="diagonalCheck_3" class="element checkbox" type="checkbox" value="1" checked="checked" data-models = "BDL5588XL/00;BDL5588XH/00" data-diag = "55" data-width = "1213" data-height = "684" />
+<label class="choice" for="diagonalCheck_3">55 дюймов</label>
 
 		</span><p class="guidelines" id="guide_3"><small>Поставьте галочки напротив требуемых размеров</small></p> 
 		</li>
@@ -54,9 +55,13 @@
 	
 			</ul>
 		</form>
-<div id="validateWidth" class="btn"  />
+<div id = "validateWidth" class="btn"  />
 Проверить
-<div>
+</div>
+
+<div id = "output">
+</div>
+
 <script src='script.js'></script>
 </body>
 </html>
