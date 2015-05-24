@@ -48,10 +48,16 @@ var calculateWall = function () { //фунцкция возвращает мас
     if (diagChecks[i].checked === true ) {
       numPanelsWidth = Math.max(1, Math.round(document.getElementById('wallWidth').value/(diagChecks[i].dataset.width/1000)));
       numPanelsHeight = Math.max(1, Math.round(document.getElementById('wallHeight').value/(diagChecks[i].dataset.height/1000))); 
-      console.log(diagChecks[i].dataset.height);
+      //console.log(diagChecks[i].dataset.height);
       panelsNeeded.push(new Array(diagChecks[i].dataset.diag, numPanelsWidth, diagChecks[i].dataset.width, numPanelsHeight, diagChecks[i].dataset.height));
+      } else {
+          panelsNeeded.push(0);
+      }
+      
+    
     }
-  }
+  } else {
+     return false;
  }
   
  return panelsNeeded; 
@@ -59,12 +65,45 @@ var calculateWall = function () { //фунцкция возвращает мас
 
 var outputToDiv = function (panelsNeeded) {
   var i = 0;
+  var j = 0;
   var sizeString = "";
+  var modelString = "";
+  var modelsArray;
   
- document.getElementById("output").innerHTML = "";
-  for(i = 0; i < panelsNeeded.length; i++) {
-    sizeString = (panelsNeeded[i][1]*panelsNeeded[i][2]/1000).toFixed(1) + "x" + (panelsNeeded[i][3]*panelsNeeded[i][4]/1000).toFixed(1) + " метров ";
+  var diagSpan = document.getElementById("diagonalChecks");
+  var diagChecks = diagSpan.getElementsByTagName("input");
+  var numOfDiagonals = diagChecks.length;
+  
+  var brightSpan = document.getElementById("brightnessChecks");
+  var brightChecks = brightSpan.getElementsByTagName("input");
+  var brightLabels = brightSpan.getElementsByTagName("label");
+  var numOfBright = brightChecks.length;
+  
+  
+  
+  document.getElementById("output").innerHTML = "";
+  
+ 
+ 
+ for(i = 0; i < panelsNeeded.length; i++) {
+    
+     if(panelsNeeded[i] !== 0 ) {
+         modelArray = diagChecks[i].dataset.models.split(";");
+         
+         for (j = 0; j < brightChecks.length; j++) {
+             if(brightChecks[j].checked === true && modelArray[j].length > 0 ) {
+                //console.log(brightLabels[i].innerHTML);
+                 modelString += modelArray[j] + " " + brightLabels[j].innerHTML + "<br />";
+            }
+         }
+         document.getElementById("output").innerHTML += modelString;
+         modelString = "";
+         sizeString = (panelsNeeded[i][1]*panelsNeeded[i][2]/1000).toFixed(1) + "x" + (panelsNeeded[i][3]*panelsNeeded[i][4]/1000).toFixed(1) + " метров ";
+    
+    
+    
     document.getElementById("output").innerHTML += "На панелях " + panelsNeeded[i][0] + " дюймов. В ширину " + panelsNeeded[i][1] + " панелей, в длину "+ panelsNeeded[i][3] +". Размер: " + sizeString + "<br />";
-  
+     };
   }
 }
+
